@@ -68,11 +68,26 @@ class _MyHomePageState extends State<MyHomePage> {
               print("Bilgi Icon Tıklandı");
             },
           ),
-          IconButton(
-            tooltip: "Popup Menu",
-            icon: Icon(Icons.more_vert),
-            onPressed: (){
-                print("Popup Menu Tıklandı");
+         ),
+          PopupMenuButton(
+            child: Icon(Icons.more_vert),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: 1,
+                child: Text("Sil"),
+              ),
+              PopupMenuItem(
+                value: 2,
+                child: Text("Güncelle"),
+              ),
+            ],
+            onSelected: (menuItemValue){
+              if(menuItemValue == 1){
+                print("Sil tıklandı");
+              }
+              if(menuItemValue == 2){
+                print("Güncelle tıklandı");
+              }
             },
           ),
         ],
